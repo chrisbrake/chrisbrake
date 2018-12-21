@@ -9,7 +9,7 @@ chrisbrake = "chrisbrake:main"
 [tool.flit.metadata]
 module = "chrisbrake"
 author = "Chris Brake"
-author-email = "a@b.c"
+author-email = "chris.brake@gmail.com"
 description-file = 'README.rst'
 classifiers=[
     "License :: OSI Approved :: BSD License",
