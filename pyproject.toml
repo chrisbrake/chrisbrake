@@ -9,6 +9,7 @@ chrisbrake = "chrisbrake:main"
 [tool.flit.metadata]
 module = "chrisbrake"
 author = "Chris Brake"
+home-page = "https://github.com/chrisbrake/chrisbrake"
 author-email = "chris.brake@gmail.com"
 description-file = 'README.rst'
 classifiers=[
