@@ -1,0 +1,21 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.scripts]
+chrisbrake = "chrisbrake:main"
+
+
+[tool.flit.metadata]
+module = "chrisbrake"
+author = "Chris Brake"
+author-email = "a@b.c"
+description-file = 'README.rst'
+classifiers=[
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+]
+
+[tool.flit.metadata.requires-extra]
+test = [ "flake8", "pytest", "pytest-cov"]
+doc = ["sphinx"]
