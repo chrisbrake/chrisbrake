@@ -1,22 +1,34 @@
+import datetime
+import json
 from pynput import keyboard
+
+last_time = datetime.datetime.utcnow()
+
+
+def build_event(key, kind):
+    global last_time
+    this_time = datetime.datetime.utcnow()
+    delay = this_time - last_time
+    last_time = this_time
+    return {
+        'delay': delay.total_seconds(),
+        'key': key.__repr__(),
+        'kind': kind
+    }
 
 
 def on_press(key):
-    try:
-        print(f'alphanumeric key {key.char} pressed')
-    except AttributeError:
-        print(f'special key {key} pressed')
+    print(json.dumps(build_event(key, 'press')))
 
 
 def on_release(key):
-    print(f'{key} released')
+    print(json.dumps(build_event(key, 'release')))
     if key == keyboard.Key.esc:
         # Stop listener
         return False
 
 
 def main():
-    print('This is io.rec')
     listener = keyboard.Listener(on_press=on_press, on_release=on_release)
     listener.start()
     listener.join()
